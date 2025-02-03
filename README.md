@@ -23,71 +23,92 @@ This project implements a **Reinforcement Learning (RL) agent** that learns to n
  ┣ 📜 README.md       # Project documentation
 ```
 
----🚀 How to Run
+---
 
-1️⃣ Install Dependencies
-
-Ensure you have Python 3 installed. Then, install the required dependencies using:
-
+## 🚀 **How to Run**
+### **1️⃣ Install Dependencies**
+Ensure you have **Python 3** installed. Then, install the required dependencies using:
+```bash
 pip install numpy pandas tk
-
+```
 This will install:
+- `numpy`: For numerical operations and array manipulations.
+- `pandas`: To manage and update the Q-table efficiently.
+- `tkinter`: For rendering the graphical user interface (GUI) of the maze.
 
-numpy: For numerical operations and array manipulations.
-
-pandas: To manage and update the Q-table efficiently.
-
-tkinter: For rendering the graphical user interface (GUI) of the maze.
-
-2️⃣ Run the Program
-
+### **2️⃣ Run the Program**
 To start training the agent and visualize the maze environment, follow these steps:
+1. Open a terminal or command prompt.
+2. Navigate to the project directory:
+   ```bash
+   cd path/to/RL-Maze
+   ```
+3. Run the main script:
+   ```bash
+   python main.py
+   ```
 
-Open a terminal or command prompt.
+### **3️⃣ Understanding the Output**
+- The **Tkinter window** will open, displaying the 4x4 maze.
+- The **red square (agent)** moves based on its learned Q-values.
+- The agent will explore, learn, and gradually find the shortest path to the goal.
+- Once training is completed, the Q-table will have optimized values for navigation.
+- The training process will print updates in the terminal, showing rewards and learning progress.
 
-Navigate to the project directory:
-
-cd path/to/RL-Maze
-
-Run the main script:
-
-python main.py
-
-3️⃣ Understanding the Output
-
-The Tkinter window will open, displaying the 4x4 maze.
-
-The red square (agent) moves based on its learned Q-values.
-
-The agent will explore, learn, and gradually find the shortest path to the goal.
-
-Once training is completed, the Q-table will have optimized values for navigation.
-
-The training process will print updates in the terminal, showing rewards and learning progress.
-
-4️⃣ Modify Training Parameters
-
+### **4️⃣ Modify Training Parameters**
 You can adjust parameters such as:
+- **Number of episodes** (increase to improve learning):
+  ```python
+  for episode in range(500):  # Change from 100 to 500
+  ```
+- **Learning rate (`α`)** and **discount factor (`γ`)** in `RL_brain.py`:
+  ```python
+  def __init__(self, actions, learning_rate=0.1, reward_decay=0.9, e_greedy=0.9):
+  ```
+- **Exploration rate (`ε`) decay**:
+  ```python
+  self.epsilon *= 0.995  # Gradually decrease exploration over time
+  ```
 
-Number of episodes (increase to improve learning):
+### **5️⃣ Stop and Restart Training**
+- Close the Tkinter window to stop training.
+- Run `python main.py` again to restart learning.
+- To **save and reload the Q-table**, implement a file-saving mechanism in `RL_brain.py`.
 
-for episode in range(500):  # Change from 100 to 500
+---
 
-Learning rate (α) and discount factor (γ) in RL_brain.py:
+## 🔬 **How It Works**
+### **1️⃣ Training Process**
+- The agent starts at the **red square**.
+- It explores the maze using the **ε-greedy policy**:
+  - **Exploits** the best-known action (90% of the time).
+  - **Explores** new actions (10% of the time).
+- The agent updates the **Q-table** using the Q-learning formula to improve future decision-making.
+- After multiple episodes, it learns the **optimal path** to reach the goal efficiently.
 
-def __init__(self, actions, learning_rate=0.1, reward_decay=0.9, e_greedy=0.9):
+### **2️⃣ Q-Learning Explanation**
+Q-learning is a model-free reinforcement learning algorithm used to find the best action to take in a given state. It follows the **Bellman equation**:
+```
+Q(s, a) ← Q(s, a) + α [r + γ max Q(s', a') - Q(s, a)]
+```
+Where:
+- **`Q(s, a)`** → The expected utility of taking action `a` in state `s`.
+- **`α` (learning rate)** → Controls how much new information overrides old knowledge.
+- **`r` (reward)** → Immediate reward received after taking action `a`.
+- **`γ` (discount factor)** → Balances the importance of future rewards (0 ≤ γ ≤ 1).
+- **`max Q(s', a')`** → The highest expected reward from the next state `s'`.
 
-Exploration rate (ε) decay:
+---
 
-self.epsilon *= 0.995  # Gradually decrease exploration over time
+## 🔥 **Features**
+✅ **Q-learning with exploration & exploitation**  
+✅ **Graphical visualization using Tkinter**  
+✅ **Dynamic interaction with the environment**  
+✅ **Customizable training episodes**  
+✅ **Adjustable learning parameters**  
+✅ **Step-by-step Q-table updates**
 
-5️⃣ Stop and Restart Training
 
-Close the Tkinter window to stop training.
-
-Run python main.py again to restart learning.
-
-To save and reload the Q-table, implement a file-saving mechanism in RL_brain.py.
 
 ---
 
