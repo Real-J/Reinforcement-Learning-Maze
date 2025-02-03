@@ -23,21 +23,71 @@ This project implements a **Reinforcement Learning (RL) agent** that learns to n
  ┣ 📜 README.md       # Project documentation
 ```
 
----
+---🚀 How to Run
 
-## 🚀 **How to Run**
-### **1️⃣ Install Dependencies**
-Ensure you have **Python 3** installed. Install required dependencies using:
-```bash
+1️⃣ Install Dependencies
+
+Ensure you have Python 3 installed. Then, install the required dependencies using:
+
 pip install numpy pandas tk
-```
 
-### **2️⃣ Run the Program**
-To start training the agent and visualize the maze environment, run:
-```bash
+This will install:
+
+numpy: For numerical operations and array manipulations.
+
+pandas: To manage and update the Q-table efficiently.
+
+tkinter: For rendering the graphical user interface (GUI) of the maze.
+
+2️⃣ Run the Program
+
+To start training the agent and visualize the maze environment, follow these steps:
+
+Open a terminal or command prompt.
+
+Navigate to the project directory:
+
+cd path/to/RL-Maze
+
+Run the main script:
+
 python main.py
-```
-This will launch the **maze environment**, where the agent will attempt to learn the optimal path through reinforcement learning.
+
+3️⃣ Understanding the Output
+
+The Tkinter window will open, displaying the 4x4 maze.
+
+The red square (agent) moves based on its learned Q-values.
+
+The agent will explore, learn, and gradually find the shortest path to the goal.
+
+Once training is completed, the Q-table will have optimized values for navigation.
+
+The training process will print updates in the terminal, showing rewards and learning progress.
+
+4️⃣ Modify Training Parameters
+
+You can adjust parameters such as:
+
+Number of episodes (increase to improve learning):
+
+for episode in range(500):  # Change from 100 to 500
+
+Learning rate (α) and discount factor (γ) in RL_brain.py:
+
+def __init__(self, actions, learning_rate=0.1, reward_decay=0.9, e_greedy=0.9):
+
+Exploration rate (ε) decay:
+
+self.epsilon *= 0.995  # Gradually decrease exploration over time
+
+5️⃣ Stop and Restart Training
+
+Close the Tkinter window to stop training.
+
+Run python main.py again to restart learning.
+
+To save and reload the Q-table, implement a file-saving mechanism in RL_brain.py.
 
 ---
 
