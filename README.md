@@ -183,7 +183,7 @@ Where:
 
 ## 😎 **Result**
 
-![Input Image](c.jpeg)
+![Input Image](c.png)
 
 
 ## 📜 **License**
