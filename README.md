@@ -75,40 +75,6 @@ You can adjust parameters such as:
 - Run `python main.py` again to restart learning.
 - To **save and reload the Q-table**, implement a file-saving mechanism in `RL_brain.py`.
 
----
-
-## 🔬 **How It Works**
-### **1️⃣ Training Process**
-- The agent starts at the **red square**.
-- It explores the maze using the **ε-greedy policy**:
-  - **Exploits** the best-known action (90% of the time).
-  - **Explores** new actions (10% of the time).
-- The agent updates the **Q-table** using the Q-learning formula to improve future decision-making.
-- After multiple episodes, it learns the **optimal path** to reach the goal efficiently.
-
-### **2️⃣ Q-Learning Explanation**
-Q-learning is a model-free reinforcement learning algorithm used to find the best action to take in a given state. It follows the **Bellman equation**:
-```
-Q(s, a) ← Q(s, a) + α [r + γ max Q(s', a') - Q(s, a)]
-```
-Where:
-- **`Q(s, a)`** → The expected utility of taking action `a` in state `s`.
-- **`α` (learning rate)** → Controls how much new information overrides old knowledge.
-- **`r` (reward)** → Immediate reward received after taking action `a`.
-- **`γ` (discount factor)** → Balances the importance of future rewards (0 ≤ γ ≤ 1).
-- **`max Q(s', a')`** → The highest expected reward from the next state `s'`.
-
----
-
-## 🔥 **Features**
-✅ **Q-learning with exploration & exploitation**  
-✅ **Graphical visualization using Tkinter**  
-✅ **Dynamic interaction with the environment**  
-✅ **Customizable training episodes**  
-✅ **Adjustable learning parameters**  
-✅ **Step-by-step Q-table updates**
-
-
 
 ---
 
@@ -185,6 +151,7 @@ Where:
 
 ![Input Image](c.png)
 
+---
 
 ## 📜 **License**
 This project is open-source and free to use under the MIT License.
