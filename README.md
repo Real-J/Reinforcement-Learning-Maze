@@ -181,7 +181,7 @@ Where:
 
 ---
 
-## 😎 **Result
+## 😎 **Result**
 
 ![Input Image](c.jpeg)
 
